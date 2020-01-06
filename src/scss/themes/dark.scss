@@ -29,9 +29,8 @@
   --popper-instagram: var(--heading-color);
   --popper-email: var(--heading-color);
 
-  --footer-text-color: var(--text-color);
-  --footer-text-color-link: #797979;
-  --footer-text-color-link-hover: var(--text-color);
+  --footer-link-color: #797979;
+  --footer-link-color-hover: var(--text-color);
 }
 
 @media (prefers-reduced-motion: reduce) {

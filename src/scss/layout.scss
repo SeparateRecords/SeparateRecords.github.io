@@ -221,17 +221,16 @@ footer {
   text-align: center;
   font-size: 0.8em;
   font-family: $primary-font;
-  color: var(--footer-text-color);
 
   a {
-    color: var(--footer-text-color-link);
+    color: var(--footer-link-color);
   }
 
   a:hover {
-    color: var(--footer-text-color-link-hover);
+    color: var(--footer-link-color-hover);
   }
 
-  &.has-js > #source {
+  #source {
     grid-area: source;
   }
 
