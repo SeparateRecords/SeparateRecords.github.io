@@ -210,11 +210,23 @@ footer {
   &.has-js {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: ". attribution theme-switcher";
+    grid-template-areas: ". attribution theme";
   }
 
   &.has-js > .attribution {
     grid-area: attribution;
+  }
+
+  #theme-switcher {
+    background: none;
+    border: none;
+    grid-area: theme;
+    cursor: grab;
+    justify-self: end;
+    
+    &.awaiting-js {
+      display: none;
+    }
   }
 }
 

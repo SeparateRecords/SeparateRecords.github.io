@@ -35,11 +35,13 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
       rel="stylesheet"
       href="css/themes/dark.css"
       media="(prefers-color-scheme: dark)"
+      data-css-theme="dark"
     />
     <link
       rel="stylesheet"
       href="css/themes/light.css"
       media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)"
+      data-css-theme="light"
     />
 
     <title>Rob C.</title>
@@ -109,6 +111,14 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
           >
             &lbrack;page source&rbrack;
           </a>
+          <a
+            type="button"
+            id="theme-switcher"
+            class="awaiting-js no-select"
+            data-theme="default"
+          >
+            &lbrack;switch theme&rbrack;
+          </a>
         </footer>
       </div>
     </div>
@@ -120,6 +130,27 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
           }
         );
       })();
+
+      const mqDark = window.matchMedia("(prefers-color-scheme: dark)");
+      if (mqDark.matches !== "not all") {
+        let btn = document.getElementById("theme-switcher");
+        btn.setAttribute("data-theme", mqDark.matches ? "dark" : "light");
+        btn.onclick = toggleDark;
+      }
+
+      function toggleDark() {
+        let btn = document.getElementById("theme-switcher");
+        let isDark = btn.getAttribute("data-theme") === "dark";
+
+        btn.setAttribute("data-theme", isDark ? "light" : "dark");
+
+        document
+          .querySelectorAll("[data-css-theme='dark']")
+          .forEach(node => (node.media = isDark ? "not all" : "all"));
+        document
+          .querySelectorAll("[data-css-theme='light']")
+          .forEach(node => (node.media = isDark ? "all" : "not all"));
+      }
     </script>
   </body>
 </html>
