@@ -25,12 +25,11 @@
   --popper-hover-shadow: none;
 
   --popper-bg: rgb(218, 218, 218);
-  --popper-twitter: #55c0eb;
-  --popper-github: #000;
-  --popper-instagram: rgb(224, 82, 136);
+  --popper-twitter: #1DA1F2;
+  --popper-github: #181717;
+  --popper-instagram: #E4405F;
   --popper-email: rgb(97, 218, 127);
 
-  --footer-bg: var(--page-bg);
   --footer-text-color: #b1b1b1;
   --footer-text-color-link: #575757;
   --footer-text-color-link-hover: var(--footer-text-color);
@@ -38,6 +37,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   :root {
+    // When reducing motion, keep the background and add a border + inner shadow.
     --popper-border: 1px solid rgb(168, 168, 168);
     --popper-hover-bg: var(--popper-bg);
     --popper-hover-shadow: 0 7px 15px 2px rgba(0, 0, 0, 0.116),

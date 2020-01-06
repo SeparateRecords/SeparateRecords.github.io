@@ -29,6 +29,29 @@ a {
   text-decoration: none;
 }
 
+.content-wrapper {
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.content {
+  min-height: 100vh;
+  margin-left: var(--gap);
+  margin-right: var(--gap);
+  display: grid;
+  grid-template-columns: auto;
+  // Takes as much room as possible for the links, shrinks card and footer
+  // to the minimum size they can be to still fit within the height.
+  // Because the page height is 100vh, this will push the footer right to the
+  // bottom, regardless of how much content there is or how large the screen is.
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "card"
+    "links"
+    "footer";
+  gap: var(--gap);
+}
+
 #about {
   position: relative;
   display: grid;
@@ -43,7 +66,7 @@ a {
   cursor: grab;
   margin: 30px auto;
   text-align: center;
-  /* Standard business card dimensions, as defined by the ISO */
+  // Standard business card dimensions, as defined by the ISO
   width: 8.559cm;
   height: 5.397cm;
 
@@ -103,12 +126,8 @@ a {
   }
 
   .info p {
-    margin: 10px;
-    line-height: 160%;
-  }
-
-  .info p:first-of-type {
-    margin-top: 20px;
+    margin: 15px 10px 10px 10px;
+    line-height: 170%;
   }
 }
 
@@ -116,31 +135,14 @@ a {
   margin-left: 0.5cm;
   margin-right: 0.5cm;
   text-align: center;
+  // Width is set to 0 so it can be adjusted at smaller screen sizes and
+  // have a nice transition (see @media queries down the bottom for details)
   width: 0;
   transition: width 0.2s ease;
   will-change: width;
   color: var(--heading-color);
   font-family: "Overpass Mono", monospace;
   font-size: 1.5em;
-}
-
-.content {
-  max-width: var(--page-width);
-  margin: 0 auto;
-}
-
-.content-wrapper {
-  min-height: 100vh;
-  margin-left: var(--gap);
-  margin-right: var(--gap);
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    "card"
-    "links"
-    "footer";
-  gap: var(--gap);
 }
 
 .poppers {
@@ -161,7 +163,6 @@ a {
 }
 
 .popper {
-  z-index: 0;
   width: var(--popper-width);
   height: var(--popper-height);
   line-height: 100px;
@@ -174,6 +175,11 @@ a {
 
   transition: all 0.2s var(--popper-hover-curve);
   transition-timing-function: var(--popper-hover-curve);
+
+  // Scale causes z-index to break in weird ways, so specify the position as relative
+  // and explicitly set the z-index on both normal and :hover
+  position: relative;
+  z-index: 0;
 
   &:hover {
     z-index: 20;
@@ -202,15 +208,19 @@ a {
 }
 
 footer {
-  background-color: var(--footer-bg);
   align-self: flex-end;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: ". source theme";
+
   width: 100%;
   height: var(--footer-height);
+
   line-height: var(--footer-height);
   text-align: center;
-  bottom: 0;
-  font-family: $primary-font;
   font-size: 0.8em;
+  font-family: $primary-font;
   color: var(--footer-text-color);
 
   a {
@@ -221,23 +231,19 @@ footer {
     color: var(--footer-text-color-link-hover);
   }
 
-  &.has-js {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: ". attribution theme";
-  }
-
-  &.has-js > .attribution {
-    grid-area: attribution;
+  &.has-js > #source {
+    grid-area: source;
   }
 
   #theme-switcher {
     background: none;
     border: none;
     grid-area: theme;
-    cursor: grab;
+    cursor: pointer;
     justify-self: end;
 
+    // Don't display this element if there's no JS.
+    // There'd be no point, it wouldn't do anything.
     &.awaiting-js {
       display: none;
     }
@@ -263,7 +269,7 @@ footer {
   // it symmetrical until the screen is big enough.
   footer.has-js {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "attribution theme";
+    grid-template-areas: "source theme";
 
     #theme-switcher {
       justify-self: inherit;

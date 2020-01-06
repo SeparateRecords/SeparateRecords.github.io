@@ -10,7 +10,7 @@
     "build": "npm-run-all -p build:*",
     "watch:scss": "chokidar 'src/scss/**/*.scss' -c 'npm run build:scss'",
     "server": "live-server . --ignorePattern='^(CNAME|package.*|README\\.md|\\.git.*|src)' --wait=800",
-    "dev": "npm-run-all -p server watch:scss"
+    "dev": "npm-run-all -p build server watch:scss"
   },
   "repository": {
     "type": "git",

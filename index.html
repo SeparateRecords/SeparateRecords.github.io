@@ -47,8 +47,9 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
     <title>Rob C.</title>
   </head>
   <body>
-    <div class="content">
-      <div class="content-wrapper">
+    <!-- .content-wrapper brings the content to a specific width, .content creates the grid -->
+    <div class="content-wrapper">
+      <div class="content">
         <main>
           <div id="about" class="no-select">
             <div class="name">
@@ -102,11 +103,12 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
           </div>
         </aside>
 
-        <!-- The footer itself is a grid when javascript is enabled,
-        otherwise the only thing that displays is the attribution. -->
+        <!-- When JS is enabled, .awaiting-js becomes .has-js
+        If enabled, the footer becomes a grid and #theme-switcher is shown.
+        Otherwise, only the [page source] link is displayed. -->
         <footer class="awaiting-js">
           <a
-            class="attribution"
+            id="source"
             href="https://github.com/SeparateRecords/SeparateRecords.github.io"
           >
             &lbrack;page source&rbrack;
@@ -126,6 +128,7 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
     </div>
     <script>
       (function() {
+        // Replace all instances of .awaiting-js with .has-js
         Array.from(document.getElementsByClassName("awaiting-js")).forEach(
           node => {
             node.classList.replace("awaiting-js", "has-js");
@@ -135,8 +138,8 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
 
       const mq = window.matchMedia("(prefers-color-scheme: dark)");
       if (mq.matches !== "not all") {
-        // Set data-theme to an initial value, based on the prefers-color-scheme
-        // media query.
+        // Set the theme switcher button's data-theme attribute to an initial value,
+        // based on the prefers-color-scheme media query.
         document
           .getElementById("theme-switcher")
           .setAttribute("data-theme", mq.matches ? "dark" : "light");

@@ -29,7 +29,6 @@
   --popper-instagram: var(--heading-color);
   --popper-email: var(--heading-color);
 
-  --footer-bg: var(--page-bg);
   --footer-text-color: var(--text-color);
   --footer-text-color-link: #797979;
   --footer-text-color-link-hover: var(--text-color);
@@ -37,6 +36,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   :root {
+    // This won't actually change the scale, but will
+    // still apply to the shadow and border.
     --popper-hover-curve: cubic-bezier(0.11, 0.97, 0.63, 1);
   }
 }
