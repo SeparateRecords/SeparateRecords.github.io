@@ -113,10 +113,11 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
             <i class="fas fa-external-link-alt"></i>
           </a>
           <a
-            type="button"
+            href="javascript:void(0)"
+            onclick="toggleDark(this)"
             id="theme-switcher"
             class="awaiting-js no-select"
-            data-theme="default"
+            data-theme="light"
           >
             &lbrack;switch theme&rbrack;
           </a>
@@ -132,25 +133,30 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
         );
       })();
 
-      const mqDark = window.matchMedia("(prefers-color-scheme: dark)");
-      if (mqDark.matches !== "not all") {
-        let btn = document.getElementById("theme-switcher");
-        btn.setAttribute("data-theme", mqDark.matches ? "dark" : "light");
-        btn.onclick = toggleDark;
+      const mq = window.matchMedia("(prefers-color-scheme: dark)");
+      if (mq.matches !== "not all") {
+        // Set data-theme to an initial value, based on the prefers-color-scheme
+        // media query.
+        document
+          .getElementById("theme-switcher")
+          .setAttribute("data-theme", mq.matches ? "dark" : "light");
       }
 
-      function toggleDark() {
-        let btn = document.getElementById("theme-switcher");
+      // Toggles page dark theme.
+      // Sets data-theme on `btn` to track the page theme state.
+      function toggleDark(btn) {
         let isDark = btn.getAttribute("data-theme") === "dark";
 
         btn.setAttribute("data-theme", isDark ? "light" : "dark");
 
+        let usingDarkTheme = isDark ? "not all" : "all";
+        let usingLightTheme = isDark ? "all" : "not all";
         document
           .querySelectorAll("[data-css-theme='dark']")
-          .forEach(node => (node.media = isDark ? "not all" : "all"));
+          .forEach(link => (link.media = usingDarkTheme));
         document
           .querySelectorAll("[data-css-theme='light']")
-          .forEach(node => (node.media = isDark ? "all" : "not all"));
+          .forEach(link => (link.media = usingLightTheme));
       }
     </script>
   </body>
