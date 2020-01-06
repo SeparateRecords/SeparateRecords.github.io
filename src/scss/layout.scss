@@ -152,6 +152,14 @@ a {
   grid-auto-rows: 4cm;
 }
 
+.poppers > a {
+  // On mobile, tapping on the popper highlights it. It already provides
+  // feedback by growing/changing shape, so it's safe to disable this.
+  // Annoyingly, this isn't a standard, and (as at time of writing) this
+  // property is not supported by autoprefixer.
+  -webkit-tap-highlight-color: transparent;
+}
+
 .popper {
   z-index: 0;
   width: var(--popper-width);
