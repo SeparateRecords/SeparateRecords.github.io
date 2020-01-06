@@ -12,6 +12,7 @@ $secondary-font: "Assistant", sans-serif;
   --popper-border-radius: 20px;
   --popper-hover-border-radius: 25px;
   --footer-height: 40px;
+  --socials-margin: 0.5cm;
 }
 
 body {
@@ -113,6 +114,11 @@ a {
 
 #links h2 {
   margin-left: 0.5cm;
+  margin-right: 0.5cm;
+  text-align: center;
+  width: 0;
+  transition: width 0.2s ease;
+  will-change: width;
   color: var(--heading-color);
   font-family: "Overpass Mono", monospace;
   font-size: 1.5em;
@@ -229,6 +235,34 @@ footer {
     }
   }
 }
+
+// Customisations for phones
+@media (max-width: 450px) {
+  // Shrink the poppers when there's not enough room for two
+  :root {
+    --popper-width: 130px;
+  }
+
+  // The header is always centered, but it has a width of 0, so it's always
+  // on the left. When the width increases, it transitions to the center.
+  #links h2 {
+    width: calc(100% - 2 * var(--socials-margin));
+  }
+}
+
+@media (max-width: 640px) {
+  // The footer still looks a little funky even beyond phone widths, so keep
+  // it symmetrical until the screen is big enough.
+  footer.has-js {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "attribution theme";
+    
+    #theme-switcher {
+      justify-self: inherit;
+    }
+  }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   // Don't change the corner radius, no matter what the theme is
