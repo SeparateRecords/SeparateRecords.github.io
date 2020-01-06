@@ -4,13 +4,13 @@
   "description": "My personal website.",
   "main": "index.js",
   "scripts": {
-    "build-css-step:compile-scss": "node-sass --source-map=true --output-style=compressed src/scss -o css",
-    "build-css-step:add-vendor-prefixes": "postcss css/*.css css/**/*.css --verbose --replace --use autoprefixer",
-    "build:css": "npm-run-all build-css-step:*",
+    "build-scss-step:compile-scss": "node-sass --source-map=true --output-style=compressed src/scss -o css",
+    "build-scss-step:add-vendor-prefixes": "postcss css/*.css css/**/*.css --verbose --replace --use autoprefixer",
+    "build:scss": "npm-run-all build-css-step:*",
     "build": "npm-run-all -p build:*",
-    "watch:sass": "chokidar 'src/scss/**/*.scss' -c 'npm run build:css'",
-    "serve": "live-server . --ignorePattern='^(CNAME|package.*|README.md|.gitignore|.git|src)' --wait=500",
-    "dev": "npm-run-all -p serve watch:sass"
+    "watch:scss": "chokidar 'src/scss/**/*.scss' -c 'npm run build:scss'",
+    "server": "live-server . --ignorePattern='^(CNAME|package.*|README.md|.gitignore|.git|src)' --wait=500",
+    "dev": "npm-run-all -p server watch:scss"
   },
   "repository": {
     "type": "git",
