@@ -13,6 +13,17 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
       src="https://kit.fontawesome.com/6ecb4f54cf.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+      if (
+        window.matchMedia("(prefers-color-scheme: dark)").media === "not all"
+      ) {
+        document.documentElement.style.display = "none";
+        document.head.insertAdjacentHTML(
+          "beforeend",
+          '<link rel="stylesheet" href="css/themes/light.css" onload="document.documentElement.style.display = \'\'">'
+        );
+      }
+    </script>
     <link
       href="https://fonts.googleapis.com/css?family=Assistant|Overpass+Mono&display=swap"
       rel="stylesheet"
@@ -89,8 +100,11 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
           </div>
         </aside>
 
-        <footer>
+        <!-- The footer itself is a grid when javascript is enabled,
+        otherwise the only thing that displays is the attribution. -->
+        <footer class="awaiting-js">
           <a
+            class="attribution"
             href="https://github.com/SeparateRecords/SeparateRecords.github.io"
           >
             &lbrack;page source&rbrack;
@@ -98,5 +112,14 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
         </footer>
       </div>
     </div>
+    <script>
+      (function() {
+        Array.from(document.getElementsByClassName("awaiting-js")).forEach(
+          node => {
+            node.classList.replace("awaiting-js", "has-js");
+          }
+        );
+      })();
+    </script>
   </body>
 </html>

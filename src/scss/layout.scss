@@ -206,6 +206,16 @@ footer {
   a:hover {
     color: var(--footer-text-color-link-hover);
   }
+
+  &.has-js {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: ". attribution theme-switcher";
+  }
+
+  &.has-js > .attribution {
+    grid-area: attribution;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
