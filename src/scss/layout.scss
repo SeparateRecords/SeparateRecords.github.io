@@ -1,4 +1,4 @@
-@import 'reset';
+@import "reset";
 
 $primary-font: "Overpass Mono", monospace;
 $secondary-font: "Assistant", sans-serif;
@@ -54,54 +54,54 @@ a {
 
   transition: all 0.1s ease-out;
   will-change: transform, box-shadow;
-  
+
   &:hover {
     transform: translateY(-10px);
     box-shadow: var(--card-shadow-hover);
   }
-  
+
   a[href] {
     color: inherit;
     text-decoration: underline;
   }
-  
+
   a[href]:hover {
     filter: brightness(1.1);
   }
-  
+
   .name {
     align-self: flex-end;
   }
-  
+
   .name h1 {
     bottom: 0;
     color: var(--heading-color);
     font-family: $primary-font;
     font-size: 1.5em;
   }
-  
+
   .contact em {
     font-family: $primary-font;
     color: var(--code-text-color);
-  
+
     background-color: var(--code-background);
     border: var(--code-border);
     border-radius: 4px;
-  
+
     padding: 4px;
   }
-  
+
   .info {
     align-self: flex-start;
   }
-  
+
   .info hr {
     border-style: solid;
     border-color: var(--hr-color);
     border-width: 0.4px;
     width: 70%;
   }
-  
+
   .info p {
     margin: 10px;
     line-height: 160%;
@@ -175,19 +175,19 @@ a {
     border: var(--popper-border);
     border-radius: var(--popper-hover-border-radius);
   }
-  
+
   .twitter {
     color: var(--popper-twitter);
   }
-  
+
   .github {
     color: var(--popper-github);
   }
-  
+
   .instagram {
     color: var(--popper-instagram);
   }
-  
+
   .email {
     color: var(--popper-email);
   }
@@ -208,7 +208,7 @@ footer {
   a {
     color: var(--footer-text-color-link);
   }
-  
+
   a:hover {
     color: var(--footer-text-color-link-hover);
   }
@@ -229,7 +229,7 @@ footer {
     grid-area: theme;
     cursor: grab;
     justify-self: end;
-    
+
     &.awaiting-js {
       display: none;
     }
@@ -256,13 +256,12 @@ footer {
   footer.has-js {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "attribution theme";
-    
+
     #theme-switcher {
       justify-self: inherit;
     }
   }
 }
-
 
 @media (prefers-reduced-motion: reduce) {
   // Don't change the corner radius, no matter what the theme is
