@@ -6,7 +6,7 @@
   "scripts": {
     "build-scss-step:compile-scss": "node-sass --source-map=true --output-style=compressed src/scss -o css",
     "build-scss-step:add-vendor-prefixes": "postcss css/*.css css/**/*.css --verbose --replace --use autoprefixer",
-    "build:scss": "npm-run-all build-css-step:*",
+    "build:scss": "npm-run-all build-scss-step:*",
     "build": "npm-run-all -p build:*",
     "watch:scss": "chokidar 'src/scss/**/*.scss' -c 'npm run build:scss'",
     "server": "live-server . --ignorePattern='^(CNAME|package.*|README.md|.gitignore|.git|src)' --wait=500",
