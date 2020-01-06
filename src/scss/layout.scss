@@ -7,10 +7,10 @@ $secondary-font: "Assistant", sans-serif;
   --page-width: 880px;
   --gap: 30px;
   --card-border-radius: 20px;
-  --popper-width: 170px;
-  --popper-height: 100px;
-  --popper-border-radius: 20px;
-  --popper-hover-border-radius: 25px;
+  --bubble-width: 170px;
+  --bubble-height: 100px;
+  --bubble-border-radius: 20px;
+  --bubble-hover-border-radius: 25px;
   --footer-height: 40px;
   --socials-margin: 0.5cm;
 }
@@ -145,36 +145,36 @@ a {
   font-size: 1.5em;
 }
 
-.poppers {
+.bubbles {
   display: grid;
   column-gap: var(--gap);
   justify-items: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(var(--popper-width), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--bubble-width), 1fr));
   grid-auto-rows: 4cm;
 }
 
-.poppers > a {
-  // On mobile, tapping on the popper highlights it. It already provides
+.bubbles > a {
+  // On mobile, tapping on the bubble highlights it. It already provides
   // feedback by growing/changing shape, so it's safe to disable this.
   // Annoyingly, this isn't a standard, and (as at time of writing) this
   // property is not supported by autoprefixer.
   -webkit-tap-highlight-color: transparent;
 }
 
-.popper {
-  width: var(--popper-width);
-  height: var(--popper-height);
+.bubble {
+  width: var(--bubble-width);
+  height: var(--bubble-height);
   line-height: 100px;
   text-align: center;
   font-size: 3em;
-  background-color: var(--popper-bg);
-  border: var(--popper-border);
+  background-color: var(--bubble-bg);
+  border: var(--bubble-border);
   border-width: 0px;
   border-radius: 20px;
 
-  transition: all 0.2s var(--popper-hover-curve);
-  transition-timing-function: var(--popper-hover-curve);
+  transition: all 0.2s var(--bubble-hover-curve);
+  transition-timing-function: var(--bubble-hover-curve);
 
   // Scale causes z-index to break in weird ways, so specify the position as relative
   // and explicitly set the z-index on both normal and :hover
@@ -183,27 +183,27 @@ a {
 
   &:hover {
     z-index: 20;
-    transform: scale(var(--popper-hover-scale));
-    background-color: var(--popper-hover-bg);
-    box-shadow: var(--popper-hover-shadow);
-    border: var(--popper-border);
-    border-radius: var(--popper-hover-border-radius);
+    transform: scale(var(--bubble-hover-scale));
+    background-color: var(--bubble-hover-bg);
+    box-shadow: var(--bubble-hover-shadow);
+    border: var(--bubble-border);
+    border-radius: var(--bubble-hover-border-radius);
   }
 
   .twitter {
-    color: var(--popper-twitter);
+    color: var(--bubble-twitter);
   }
 
   .github {
-    color: var(--popper-github);
+    color: var(--bubble-github);
   }
 
   .instagram {
-    color: var(--popper-instagram);
+    color: var(--bubble-instagram);
   }
 
   .email {
-    color: var(--popper-email);
+    color: var(--bubble-email);
   }
 }
 
@@ -251,9 +251,9 @@ footer {
 
 // Customisations for phones
 @media (max-width: 450px) {
-  // Shrink the poppers when there's not enough room for two
+  // Shrink the bubbles when there's not enough room for two
   :root {
-    --popper-width: 130px;
+    --bubble-width: 130px;
   }
 
   // The header is always centered, but it has a width of 0, so it's always
@@ -279,11 +279,11 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   // Don't change the corner radius, no matter what the theme is
   :root {
-    --popper-hover-border-radius: var(--popper-border-radius);
+    --bubble-hover-border-radius: var(--bubble-border-radius);
   }
 
   // Don't change the size
-  .popper {
+  .bubble {
     transform: none !important;
   }
 

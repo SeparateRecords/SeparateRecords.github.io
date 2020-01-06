@@ -16,18 +16,18 @@
   --code-background: #202020;
   --code-border: 1px solid rgba(0, 0, 0, 0.219);
 
-  --popper-hover-scale: 1.4;
-  --popper-bg: rgb(39, 39, 39);
-  --popper-border: var(--card-border);
-  --popper-hover-bg: rgb(41, 41, 41);
-  --popper-hover-curve: cubic-bezier(0.13, 1.38, 0.59, 1.01);
-  --popper-hover-shadow: 0 7px 15px 2px rgba(0, 0, 0, 0.116),
+  --bubble-hover-scale: 1.4;
+  --bubble-bg: rgb(39, 39, 39);
+  --bubble-border: var(--card-border);
+  --bubble-hover-bg: rgb(41, 41, 41);
+  --bubble-hover-curve: cubic-bezier(0.13, 1.38, 0.59, 1.01);
+  --bubble-hover-shadow: 0 7px 15px 2px rgba(0, 0, 0, 0.116),
     inset 0 0 1px 1px #444444;
 
-  --popper-twitter: var(--heading-color);
-  --popper-github: var(--heading-color);
-  --popper-instagram: var(--heading-color);
-  --popper-email: var(--heading-color);
+  --bubble-twitter: var(--heading-color);
+  --bubble-github: var(--heading-color);
+  --bubble-instagram: var(--heading-color);
+  --bubble-email: var(--heading-color);
 
   --footer-link-color: #797979;
   --footer-link-color-hover: var(--text-color);
@@ -37,6 +37,6 @@
   :root {
     // This won't actually change the scale, but will
     // still apply to the shadow and border.
-    --popper-hover-curve: cubic-bezier(0.11, 0.97, 0.63, 1);
+    --bubble-hover-curve: cubic-bezier(0.11, 0.97, 0.63, 1);
   }
 }
