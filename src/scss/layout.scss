@@ -33,7 +33,7 @@ a {
   // feedback by growing/changing shape, so it's safe to disable this.
   // Annoyingly, this isn't a standard, and (as at time of writing) this
   // property is not supported by autoprefixer.
-  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   -webkit-tap-highlight-color: transparent !important;
 }
 
@@ -194,7 +194,7 @@ a {
     width: var(--bubble-icon-size);
     height: 100%;
   }
-  
+
   &.twitter svg {
     fill: var(--bubble-twitter);
   }
@@ -237,19 +237,8 @@ footer {
     color: var(--footer-link-color-hover);
   }
 
-  // Adding the SVG styling made this a complete clusterfuck.
-  // TODO: Remove redundant styles
   #source {
-    display: inline-block;
-    height: 100%;
     grid-area: source;
-
-    svg {
-      display: inline-block;
-      vertical-align: text-top;
-      height: 1rem;
-      width: 1em;
-    }
   }
 
   #theme-switcher {
