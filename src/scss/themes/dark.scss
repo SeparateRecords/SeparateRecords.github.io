@@ -33,6 +33,21 @@
   --footer-link-color-hover: var(--text-color);
 }
 
+@media (max-width: 450px) {
+  :root {
+    --heading-color: #e6e6e6;
+    --code-text-color: #cccccc;
+    
+    --card-bg: #2c2c2c;
+
+    --bubble-bg: rgb(44, 44, 44);
+    --bubble-hover-bg: rgb(46, 46, 46);
+    --bubble-hover-shadow: 0 9px 15px 2px rgba(0, 0, 0, 0.2), inset 0 0 1px 1px #444444;
+
+    --footer-link-color: #9b9b9b;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     // This won't actually change the scale, but will
