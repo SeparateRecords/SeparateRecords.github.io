@@ -27,6 +27,13 @@ body {
 
 a {
   text-decoration: none;
+
+  // On mobile, tapping on the bubble highlights it. It already provides
+  // feedback by growing/changing shape, so it's safe to disable this.
+  // Annoyingly, this isn't a standard, and (as at time of writing) this
+  // property is not supported by autoprefixer.
+  -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 .content-wrapper {
@@ -154,14 +161,6 @@ a {
   grid-auto-rows: 4cm;
 }
 
-.bubbles > a {
-  // On mobile, tapping on the bubble highlights it. It already provides
-  // feedback by growing/changing shape, so it's safe to disable this.
-  // Annoyingly, this isn't a standard, and (as at time of writing) this
-  // property is not supported by autoprefixer.
-  -webkit-tap-highlight-color: transparent;
-}
-
 .bubble {
   width: var(--bubble-width);
   height: var(--bubble-height);
@@ -172,6 +171,7 @@ a {
   border: var(--bubble-border);
   border-width: 0px;
   border-radius: 20px;
+  outline: none;
 
   transition: all 0.2s var(--bubble-hover-curve);
   transition-timing-function: var(--bubble-hover-curve);
