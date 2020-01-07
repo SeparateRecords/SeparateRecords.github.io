@@ -1,7 +1,7 @@
 @import "reset";
 
 $primary-font: "Overpass Mono", monospace;
-$secondary-font: "Assistant", sans-serif;
+$secondary-font: "Overpass", sans-serif;
 
 :root {
   --page-width: 880px;
@@ -9,6 +9,7 @@ $secondary-font: "Assistant", sans-serif;
   --card-border-radius: 20px;
   --bubble-width: 170px;
   --bubble-height: 100px;
+  --bubble-icon-size: 60px;
   --bubble-border-radius: 20px;
   --bubble-hover-border-radius: 25px;
   --footer-height: 40px;
@@ -133,7 +134,7 @@ a {
   }
 
   .info p {
-    margin: 15px 10px 10px 10px;
+    margin: 15px 6px 6px 6px;
     line-height: 170%;
   }
 }
@@ -164,9 +165,6 @@ a {
 .bubble {
   width: var(--bubble-width);
   height: var(--bubble-height);
-  line-height: 100px;
-  text-align: center;
-  font-size: 3em;
   background-color: var(--bubble-bg);
   border: var(--bubble-border);
   border-width: 0px;
@@ -190,20 +188,27 @@ a {
     border-radius: var(--bubble-hover-border-radius);
   }
 
-  .twitter {
-    color: var(--bubble-twitter);
+  & svg {
+    display: block;
+    margin: auto;
+    width: var(--bubble-icon-size);
+    height: 100%;
+  }
+  
+  &.twitter svg {
+    fill: var(--bubble-twitter);
   }
 
-  .github {
-    color: var(--bubble-github);
+  &.github svg {
+    fill: var(--bubble-github);
   }
 
-  .instagram {
-    color: var(--bubble-instagram);
+  &.instagram svg {
+    fill: var(--bubble-instagram);
   }
 
-  .email {
-    color: var(--bubble-email);
+  &.email svg {
+    fill: var(--bubble-email);
   }
 }
 
@@ -223,15 +228,28 @@ footer {
   font-family: $primary-font;
 
   a {
+    fill: var(--footer-link-color);
     color: var(--footer-link-color);
   }
 
   a:hover {
+    fill: var(--footer-link-color-hover);
     color: var(--footer-link-color-hover);
   }
 
+  // Adding the SVG styling made this a complete clusterfuck.
+  // TODO: Remove redundant styles
   #source {
+    display: inline-block;
+    height: 100%;
     grid-area: source;
+
+    svg {
+      display: inline-block;
+      vertical-align: text-top;
+      height: 1rem;
+      width: 1em;
+    }
   }
 
   #theme-switcher {

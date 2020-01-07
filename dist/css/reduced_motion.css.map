@@ -2,7 +2,7 @@
 	"version": 3,
 	"file": "reduced_motion.css",
 	"sources": [
-		"../src/scss/reduced_motion.scss"
+		"../../src/scss/reduced_motion.scss"
 	],
 	"names": [],
 	"mappings": "AAAA,MAAM,EAAE,sBAAsB,EAAE,MAAM,EACpC,AAAA,KAAK,AAAC,CACJ,4BAA4B,CAAA,4BAAC,CAC9B,AAED,AAAA,OAAO,AAAC,CACN,SAAS,CAAE,eAAe,CAC3B,AAED,AAAA,MAAM,AAAA,MAAM,AAAC,CACX,SAAS,CAAE,eAAe,CAC1B,UAAU,CAAE,kBAAkB,CAC/B"

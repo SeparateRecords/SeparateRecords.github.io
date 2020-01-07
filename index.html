@@ -11,31 +11,27 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <link
-      href="https://fonts.googleapis.com/css?family=Assistant|Overpass+Mono&display=swap"
+      href="https://fonts.googleapis.com/css?family=Overpass|Overpass+Mono&display=swap"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
     />
 
-    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="dist/css/layout.css" />
 
     <link
       rel="stylesheet"
-      href="css/themes/dark.css"
+      href="dist/css/themes/dark.css"
       media="(prefers-color-scheme: dark)"
       data-css-theme="dark"
     />
     <link
       rel="stylesheet"
-      href="css/themes/light.css"
+      href="dist/css/themes/light.css"
       media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)"
       data-css-theme="light"
     />
     <link
       rel="stylesheet"
-      href="css/reduced_motion.css"
+      href="dist/css/reduced_motion.css"
       media="(prefers-reduced-motion: reduce)"
     />
 
@@ -73,43 +69,54 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
         <aside id="links">
           <h2 class="no-select">Socials</h2>
 
+          <!-- The bubbles use icons from Font Awesome.
+            The SVG files are compiled into a spritesheet
+            at build time, which is then used here. -->
           <div class="bubbles">
             <a
               aria-label="Link to SeparateRecords on Twitter"
               href="https://twitter.com/SeparateRecords"
-              class="bubble"
+              class="bubble twitter"
               target="_blank"
               rel="noreferrer noopener"
             >
-              <i class="fab fa-twitter twitter"></i>
+              <svg>
+                <use href="dist/symbol/svg/sprite.symbol.svg#twitter" />
+              </svg>
             </a>
             <!----------------->
             <a
               aria-label="Link to SeparateRecords on GitHub"
               href="https://github.com/SeparateRecords"
-              class="bubble"
+              class="bubble github"
               target="_blank"
               rel="noreferrer noopener"
             >
-              <i class="fab fa-github github"></i>
+              <svg>
+                <use href="dist/symbol/svg/sprite.symbol.svg#github" />
+              </svg>
             </a>
             <!----------------->
             <a
               aria-label="Link to Rob's Instagram (@r.brtc)"
               href="https://instagram.com/r.brtc"
-              class="bubble"
+              class="bubble instagram"
               target="_blank"
               rel="noreferrer noopener"
             >
-              <i class="fab fa-instagram instagram"></i>
+              <svg>
+                <use href="dist/symbol/svg/sprite.symbol.svg#instagram" />
+              </svg>
             </a>
             <!----------------->
             <a
               aria-label="Send an email to Rob"
               href="mailto:me@rob.ac"
-              class="bubble"
+              class="bubble email"
             >
-              <i class="fas fa-paper-plane email"></i>
+              <svg>
+                <use href="dist/symbol/svg/sprite.symbol.svg#paper-plane" />
+              </svg>
             </a>
           </div>
         </aside>
@@ -123,7 +130,9 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
             href="https://github.com/SeparateRecords/SeparateRecords.github.io"
           >
             &lbrack;page source&rbrack;
-            <i class="fas fa-external-link-alt"></i>
+            <svg>
+              <use href="dist/symbol/svg/sprite.symbol.svg#external-link-alt" />
+            </svg>
           </a>
           <a
             href="javascript:void(0)"
