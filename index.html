@@ -16,7 +16,12 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
         document.documentElement.style.display = "none";
         document.head.insertAdjacentHTML(
           "beforeend",
-          '<link rel="stylesheet" href="css/themes/light.css" onload="document.documentElement.style.display = \'\'">'
+          '<link \
+            rel="stylesheet" \
+            href="css/themes/light.css" \
+            onload="document.documentElement.style.display = \'\'" \
+            data-css-theme="light" \
+          >'
         );
       }
     </script>
