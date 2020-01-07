@@ -41,6 +41,8 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
       data-css-theme="light"
     />
 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
     <title>Rob C.</title>
   </head>
   <body>
@@ -140,6 +142,13 @@ You're welcome to suggest improvements, or open an issue to let me know somethin
         document
           .getElementById("theme-switcher")
           .setAttribute("data-theme", mq.matches ? "dark" : "light");
+        
+        // Use a light-colored favicon if the browser chrome is dark.
+        // We can't know that for certain, as the user may be using a theme,
+        // but it's better than having  an (effectively) invisible icon.
+        if (mq.matches) {
+          document.querySelector("[rel='shortcut icon']").href = "favicon_dark.ico";
+        }
       }
 
       // Toggles page dark theme.
